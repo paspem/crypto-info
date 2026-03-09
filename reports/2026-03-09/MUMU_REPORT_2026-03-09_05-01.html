@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MUMU Crypto Report</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #f5f5f5; padding: 20px; }
+        .container { max-width: 800px; margin: 0 auto; background: #fff; border-radius: 12px; box-shadow: 0 2px 10px rgba(0,0,0,0.08); overflow: hidden; }
+        .header { background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); color: #fff; padding: 24px; text-align: center; }
+        .header h1 { font-size: 28px; font-weight: 700; margin-bottom: 8px; letter-spacing: -0.5px; }
+        .header .time { font-size: 14px; opacity: 0.8; }
+        .section { padding: 20px 24px; border-bottom: 1px solid #eee; }
+        .section:last-child { border-bottom: none; }
+        h2 { font-size: 14px; text-transform: uppercase; letter-spacing: 1px; color: #666; margin-bottom: 16px; }
+        
+        table { width: 100%; border-collapse: collapse; font-size: 14px; }
+        th { text-align: left; padding: 10px 8px; border-bottom: 2px solid #1a1a2e; color: #1a1a2e; font-weight: 600; }
+        td { padding: 12px 8px; border-bottom: 1px solid #f0f0f0; }
+        tr:last-child td { border-bottom: none; }
+        .coin-name { font-weight: 600; }
+        .positive { color: #00c853; }
+        .negative { color: #ff1744; }
+        
+        .pulse { background: #f8f9fa; border-radius: 8px; padding: 16px; }
+        .pulse p { font-size: 14px; line-height: 1.6; color: #333; }
+        
+        .setup { background: #f8f9fa; border-radius: 8px; padding: 16px; margin-bottom: 12px; border-left: 4px solid #1a1a2e; }
+        .setup:last-child { margin-bottom: 0; }
+        .setup-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
+        .setup-header .coin { font-weight: 700; font-size: 16px; }
+        .setup-header .direction { padding: 4px 12px; border-radius: 20px; font-size: 12px; font-weight: 600; text-transform: uppercase; }
+        .direction.long { background: #e8f5e9; color: #2e7d32; }
+        .direction.short { background: #ffebee; color: #c62828; }
+        .direction.hold { background: #fff3e0; color: #ef6c00; }
+        
+        .confidence { display: inline-block; background: #1a1a2e; color: #fff; padding: 2px 8px; border-radius: 4px; font-size: 12px; font-weight: 600; }
+        .confidence.high { background: #00c853; }
+        .confidence.medium { background: #ff9800; }
+        .confidence.low { background: #ff1744; }
+        
+        .levels { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-bottom: 12px; }
+        .level-item { text-align: center; padding: 8px; background: #fff; border-radius: 6px; }
+        .level-item .label { font-size: 10px; text-transform: uppercase; color: #666; }
+        .level-item .value { font-size: 14px; font-weight: 600; color: #1a1a2e; }
+        
+        .logic { font-size: 12px; color: #666; font-style: italic; }
+        
+        .reality-check { background: #fff3e0; border-radius: 8px; padding: 16px; }
+        .reality-check h3 { font-size: 14px; color: #e65100; margin-bottom: 8px; }
+        .reality-check p { font-size: 12px; color: #666; line-height: 1.5; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🚀 MUMU Crypto Report</h1>
+            <div class="time">UTC: 09 Mar 2026, 05:01 | WIB: 09 Mar 2026, 12:01</div>
+        </div>
+        
+        <div class="section">
+            <h2>💰 Harga Terkini</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Koin</th>
+                        <th>Harga USD</th>
+                        <th>24h Change</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td class="coin-name">BTC</td><td>$67,136</td><td class="positive">+0.57%</td></tr>
+                    <tr><td class="coin-name">ETH</td><td>$1,977</td><td class="positive">+1.89%</td></tr>
+                    <tr><td class="coin-name">SOL</td><td>$83.39</td><td class="positive">+1.71%</td></tr>
+                    <tr><td class="coin-name">DOT</td><td>$1.49</td><td class="positive">+3.74%</td></tr>
+                    <tr><td class="coin-name">AVAX</td><td>$9.01</td><td class="positive">+2.12%</td></tr>
+                    <tr><td class="coin-name">LINK</td><td>$8.71</td><td class="positive">+1.75%</td></tr>
+                    <tr><td class="coin-name">DOGE</td><td>$0.0905</td><td class="positive">+1.70%</td></tr>
+                    <tr><td class="coin-name">ADA</td><td>$0.254</td><td class="positive">+1.19%</td></tr>
+                    <tr><td class="coin-name">XRP</td><td>$1.35</td><td class="positive">+0.13%</td></tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="section">
+            <h2>📊 Market Pulse</h2>
+            <div class="pulse">
+                <p>Market menunjukkan momentum positif dengan BTC naik 0.57% dan ETH rally 1.89%. Altcoins seperti DOT (+3.74%) dan AVAX (+2.12%) memimpin gains. Sentimen bullish jangka pendek; waspadai resistance kunci.</p>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>🎯 Trade Setups</h2>
+            
+            <div class="setup">
+                <div class="setup-header">
+                    <span class="coin">BTC/USDT</span>
+                    <span class="direction long">LONG</span>
+                </div>
+                <div class="levels">
+                    <div class="level-item"><div class="label">Entry</div><div class="value">66,500 - 67,000</div></div>
+                    <div class="level-item"><div class="label">TP</div><div class="value">68,500</div></div>
+                    <div class="level-item"><div class="label">SL</div><div class="value">65,500</div></div>
+                    <div class="level-item"><div class="label">Confidence</div><div class="value"><span class="confidence high">78%</span></div></div>
+                </div>
+                <div class="logic">Breakout EMA 20 dengan volume meningkat; RSI mid-range belum overbought.</div>
+            </div>
+            
+            <div class="setup">
+                <div class="setup-header">
+                    <span class="coin">ETH/USDT</span>
+                    <span class="direction long">LONG</span>
+                </div>
+                <div class="levels">
+                    <div class="level-item"><div class="label">Entry</div><div class="value">1,950 - 1,970</div></div>
+                    <div class="level-item"><div class="label">TP</div><div class="value">2,050</div></div>
+                    <div class="level-item"><div class="label">SL</div><div class="value">1,920</div></div>
+                    <div class="level-item"><div class="label">Confidence</div><div class="value"><span class="confidence high">82%</span></div></div>
+                </div>
+                <div class="logic">Strong momentum +1.89%; support EMA 50 hold; target resistance psikologis 2,000.</div>
+            </div>
+            
+            <div class="setup">
+                <div class="setup-header">
+                    <span class="coin">SOL/USDT</span>
+                    <span class="direction long">LONG</span>
+                </div>
+                <div class="levels">
+                    <div class="level-item"><div class="label">Entry</div><div class="value">82 - 83</div></div>
+                    <div class="level-item"><div class="label">TP</div><div class="value">86</div></div>
+                    <div class="level-item"><div class="label">SL</div><div class="value">80</div></div>
+                    <div class="level-item"><div class="label">Confidence</div><div class="value"><span class="confidence medium">71%</span></div></div>
+                </div>
+                <div class="logic">Uptrend channel; breakout dari consolidation. Risk: high volatility.</div>
+            </div>
+            
+            <div class="setup">
+                <div class="setup-header">
+                    <span class="coin">DOT/USDT</span>
+                    <span class="direction long">LONG</span>
+                </div>
+                <div class="levels">
+                    <div class="level-item"><div class="label">Entry</div><div class="value">1.45 - 1.48</div></div>
+                    <div class="level-item"><div class="label">TP</div><div class="value">1.60</div></div>
+                    <div class="level-item"><div class="label">SL</div><div class="value">1.40</div></div>
+                    <div class="level-item"><div class="label">Confidence</div><div class="value"><span class="confidence high">75%</span></div></div>
+                </div>
+                <div class="logic">Best performer +3.74%; break resistance trendline. Small caps momentum.</div>
+            </div>
+            
+            <div class="setup">
+                <div class="setup-header">
+                    <span class="coin">XRP/USDT</span>
+                    <span class="direction hold">HOLD</span>
+                </div>
+                <div class="levels">
+                    <div class="level-item"><div class="label">Entry</div><div class="value">-</div></div>
+                    <div class="level-item"><div class="label">TP</div><div class="value">-</div></div>
+                    <div class="level-item"><div class="label">SL</div><div class="value">-</div></div>
+                    <div class="level-item"><div class="label">Confidence</div><div class="value"><span class="confidence low">45%</span></div></div>
+                </div>
+                <div class="logic">Sideways +0.13%; tunggu breakout jelas di atas 1.40 atau di bawah 1.30.</div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <div class="reality-check">
+                <h3>⚠️ Reality Check</h3>
+                <p>Ini bukan financial advice. Trading crypto beresiko tinggi. Selalu gunakan risk management yang tepat.Jangan pernah trade dengan dana yang tidak siap hilang. Performansi masa lalu tidak menjamin hasil masa depan. Lakukan riset mandiri sebelum mengambil keputusan.</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
