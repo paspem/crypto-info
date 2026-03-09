@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MUMU Crypto Report - 2026-03-09</title>
+    <style>
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #12121a;
+            --bg-card: #1a1a24;
+            --text-primary: #e4e4e7;
+            --text-secondary: #a1a1aa;
+            --accent-green: #22c55e;
+            --accent-red: #ef4444;
+            --accent-blue: #3b82f6;
+            --accent-purple: #a855f7;
+            --accent-yellow: #eab308;
+            --border-color: #27272a;
+            --glow-green: rgba(34, 197, 94, 0.15);
+            --glow-red: rgba(239, 68, 68, 0.15);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Inter', -apple-system, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.7;
+            min-height: 100vh;
+            background-image: 
+                radial-gradient(ellipse at top, rgba(59, 130, 246, 0.08) 0%, transparent 50%),
+                radial-gradient(ellipse at bottom right, rgba(168, 85, 247, 0.06) 0%, transparent 50%);
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            margin-bottom: 2.5rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .header h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--accent-purple), var(--accent-blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+            letter-spacing: -0.5px;
+        }
+
+        .header .meta {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .meta-item::before {
+            content: '⏰';
+        }
+
+        .fear-indicator {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.25rem 0.75rem;
+            background: var(--glow-red);
+            border: 1px solid var(--accent-red);
+            border-radius: 9999px;
+            color: var(--accent-red);
+            font-weight: 600;
+            font-size: 0.75rem;
+        }
+
+        /* Sections */
+        section {
+            margin-bottom: 2rem;
+        }
+
+        .section-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .section-title::before {
+            content: '';
+            width: 4px;
+            height: 1.25rem;
+            background: var(--accent-blue);
+            border-radius: 2px;
+        }
+
+        /* Market Pulse */
+        .market-grid {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .coin-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1.25rem;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+
+        .coin-card:hover {
+            border-color: var(--accent-blue);
+            box-shadow: 0 0 20px rgba(59, 130, 246, 0.1);
+        }
+
+        .coin-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.75rem;
+        }
+
+        .coin-name {
+            font-weight: 600;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .coin-symbol {
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+            font-weight: 400;
+        }
+
+        .coin-price {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--accent-green);
+        }
+
+        .coin-stats {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            font-size: 0.75rem;
+        }
+
+        .stat {
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+
+        .stat-positive { color: var(--accent-green); }
+        .stat-negative { color: var(--accent-red); }
+
+        .market-summary {
+            background: var(--bg-secondary);
+            border-radius: 8px;
+            padding: 1rem;
+            margin-top: 1rem;
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        /* Trade Setups */
+        .setup-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1.25rem;
+            margin-bottom: 1rem;
+        }
+
+        .setup-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .setup-direction {
+            padding: 0.25rem 0.75rem;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .direction-long {
+            background: var(--glow-green);
+            color: var(--accent-green);
+            border: 1px solid var(--accent-green);
+        }
+
+        .direction-short {
+            background: var(--glow-red);
+            color: var(--accent-red);
+            border: 1px solid var(--accent-red);
+        }
+
+        .direction-spot {
+            background: rgba(59, 130, 246, 0.15);
+            color: var(--accent-blue);
+            border: 1px solid var(--accent-blue);
+        }
+
+        .confidence {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        .confidence-value {
+            color: var(--accent-yellow);
+            font-weight: 700;
+        }
+
+        .setup-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+        }
+
+        .detail-item {
+            background: var(--bg-secondary);
+            padding: 0.5rem 0.75rem;
+            border-radius: 6px;
+            font-size: 0.75rem;
+        }
+
+        .detail-label {
+            color: var(--text-secondary);
+            display: block;
+            margin-bottom: 0.25rem;
+        }
+
+        .detail-value {
+            font-weight: 600;
+            color: var(--accent-blue);
+        }
+
+        .detail-value.tp { color: var(--accent-green); }
+        .detail-value.sl { color: var(--accent-red); }
+
+        .setup-logic {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            padding-top: 0.75rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        /* Reality Check */
+        .reality-check {
+            background: linear-gradient(135deg, rgba(239, 68, 68, 0.1), rgba(234, 179, 8, 0.05));
+            border: 1px solid var(--accent-red);
+            border-radius: 12px;
+            padding: 1.5rem;
+        }
+
+        .reality-check .section-title {
+            color: var(--accent-red);
+        }
+
+        .reality-check .section-title::before {
+            background: var(--accent-red);
+        }
+
+        .warning-list {
+            list-style: none;
+        }
+
+        .warning-list li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        .warning-list li::before {
+            content: '⚠️';
+            position: absolute;
+            left: 0;
+        }
+
+        .risk-warning {
+            color: var(--accent-red);
+            font-weight: 600;
+        }
+
+        /* Footer */
+        .footer {
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border-color);
+            text-align: center;
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+        }
+
+        .footer a {
+            color: var(--accent-blue);
+            text-decoration: none;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .coin-card, .setup-card {
+            animation: fadeIn 0.4s ease-out forwards;
+        }
+
+        .coin-card:nth-child(2) { animation-delay: 0.1s; }
+        .coin-card:nth-child(3) { animation-delay: 0.2s; }
+
+        .setup-card:nth-child(2) { animation-delay: 0.15s; }
+        .setup-card:nth-child(3) { animation-delay: 0.3s; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1>🧠 MUMU INFO</h1>
+            <div class="meta">
+                <span class="meta-item">UTC: 2026-03-09 03:37</span>
+                <span class="meta-item">WIB: 2026-03-09 10:37</span>
+                <span class="fear-indicator">
+                    😱 Fear & Greed: 8/100
+                </span>
+            </div>
+        </header>
+
+        <!-- Market Pulse -->
+        <section>
+            <h2 class="section-title">📊 Market Pulse</h2>
+            <div class="market-grid">
+                <div class="coin-card">
+                    <div class="coin-header">
+                        <div class="coin-name">
+                            ₿ Bitcoin <span class="coin-symbol">BTC</span>
+                        </div>
+                        <div class="coin-price">$67,237</div>
+                    </div>
+                    <div class="coin-stats">
+                        <span class="stat stat-positive">↑ 1.67% (1h)</span>
+                        <span class="stat stat-positive">↑ 0.33% (24h)</span>
+                        <span class="stat stat-positive">↑ 0.68% (7d)</span>
+                        <span class="stat">📊 Cap: $1.34T</span>
+                    </div>
+                </div>
+                <div class="coin-card">
+                    <div class="coin-header">
+                        <div class="coin-name">
+                            ⟐ Ethereum <span class="coin-symbol">ETH</span>
+                        </div>
+                        <div class="coin-price">$1,984</div>
+                    </div>
+                    <div class="coin-stats">
+                        <span class="stat stat-positive">↑ 2.11% (1h)</span>
+                        <span class="stat stat-positive">↑ 1.77% (24h)</span>
+                        <span class="stat stat-positive">↑ 0.60% (7d)</span>
+                        <span class="stat">📊 Cap: $239B</span>
+                    </div>
+                </div>
+                <div class="coin-card">
+                    <div class="coin-header">
+                        <div class="coin-name">
+                            ◎ Solana <span class="coin-symbol">SOL</span>
+                        </div>
+                        <div class="coin-price">$83.44</div>
+                    </div>
+                    <div class="coin-stats">
+                        <span class="stat stat-positive">↑ 1.90% (1h)</span>
+                        <span class="stat stat-positive">↑ 0.97% (24h)</span>
+                        <span class="stat stat-positive">↑ 1.61% (7d)</span>
+                        <span class="stat">📊 Cap: $47.6B</span>
+                    </div>
+                </div>
+            </div>
+            <div class="market-summary">
+                <strong>Total Market Cap:</strong> ~$2.61T | 
+                <strong>24h Volume:</strong> ~$95B+<br>
+                <em>Kesimpulan:</em> Market dalam kondisi <strong>EXTREME FEAR</strong> (8/100). Ini bisa jadi momen golden opportunity atau jatuhnya lebih dalam lagi. Don't fight the trend, tapi juga jangan fomo masuk sebelum ada konfirmasi.
+            </div>
+        </section>
+
+        <!-- Trade Setups -->
+        <section>
+            <h2 class="section-title">🎯 Trade Setups</h2>
+            
+            <div class="setup-card">
+                <div class="setup-header">
+                    <div>
+                        <strong>BTC/USDT</strong>
+                        <span class="setup-direction direction-long">Long</span>
+                    </div>
+                    <span class="confidence">Confidence: <span class="confidence-value">65%</span></span>
+                </div>
+                <div class="setup-details">
+                    <div class="detail-item">
+                        <span class="detail-label">Entry Zone</span>
+                        <span class="detail-value">$66,500 - $67,000</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Take Profit</span>
+                        <span class="detail-value tp">$68,200</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Stop Loss</span>
+                        <span class="detail-value sl">$65,800</span>
+                    </div>
+                </div>
+                <div class="setup-logic">
+                    <strong>Logika:</strong> Support structure di 66.5K bertahan, RSI oversold di timeframe 4H. Tapi dengan kondisi Extreme Fear, ini high risk high reward play. Wait for bullish order block formation.
+                </div>
+            </div>
+
+            <div class="setup-card">
+                <div class="setup-header">
+                    <div>
+                        <strong>ETH/USDT</strong>
+                        <span class="setup-direction direction-long">Long</span>
+                    </div>
+                    <span class="confidence">Confidence: <span class="confidence-value">70%</span></span>
+                </div>
+                <div class="setup-details">
+                    <div class="detail-item">
+                        <span class="detail-label">Entry Zone</span>
+                        <span class="detail-value">$1,950 - $1,970</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Take Profit</span>
+                        <span class="detail-value tp">$2,050</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Stop Loss</span>
+                        <span class="detail-value sl">$1,920</span>
+                    </div>
+                </div>
+                <div class="setup-logic">
+                    <strong>Logika:</strong> ETH outperform BTC, forming higher low di daily. Support di $1,950 solid. Jika ETH break $2,000 dengan volume, expect acceleration ke $2,050-2,100.
+                </div>
+            </div>
+
+            <div class="setup-card">
+                <div class="setup-header">
+                    <div>
+                        <strong>SOL/USDT</strong>
+                        <span class="setup-direction direction-spot">Spot</span>
+                    </div>
+                    <span class="confidence">Confidence: <span class="confidence-value">75%</span></span>
+                </div>
+                <div class="setup-details">
+                    <div class="detail-item">
+                        <span class="detail-label">Entry</span>
+                        <span class="detail-value">Current ($83.44)</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Target</span>
+                        <span class="detail-value tp">$88-92</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Stop Loss</span>
+                        <span class="detail-value sl">$78</span>
+                    </div>
+                </div>
+                <div class="setup-logic">
+                    <strong>Logika:</strong> Best performer minggu ini. Accumulation phase masih berlangsung. whale alamat lagi buildup. Hold untuk long term, don't trade this if you're paper hands.
+                </div>
+            </div>
+        </section>
+
+        <!-- Reality Check -->
+        <section>
+            <div class="reality-check">
+                <h2 class="section-title">⚠️ Reality Check</h2>
+                <ul class="warning-list">
+                    <li><span class="risk-warning">Extreme Fear (8/100)</span> = Market bisa naik tomorrow atau turun 20% minggu ini. Don't bet the farm.</li>
+                    <li><span class="risk-warning">Oil shock + Iran war</span> narrative masih berjalan — ini bisa trigger massive selloff kapan saja.</li>
+                    <li><span class="risk-warning">Liquidity sweep</span> terjadi di banyak pasangan altcoin — order blocks sedang hunted.</li>
+                    <li><span class="risk-warning">FOMO sekarang = REKT tomorrow</span>. Wait for confirmation sebelum masuk posisi.</li>
+                    <li><span class="risk-warning">Leverage = Liquidation</span>. Don't use more than 3x leverage jika masih mau tidur nyenyak.</li>
+                </ul>
+            </div>
+            <div style="background: var(--bg-secondary); padding: 1rem; border-radius: 8px; margin-top: 1rem; font-size: 0.875rem;">
+                <strong>Risk Management:</strong> Only risk 1-2% portfolio per trade. Use stop loss. You're not a whale — you can't move market, hanya bisa mengikuti.
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p><em>Report generated: 2026-03-09 03:37 UTC | MUMU INFO Alpha</em></p>
+            <p style="margin-top: 0.5rem;">⚠️ <strong>Not financial advice. DYOR or get rekt.</strong></p>
+        </footer>
+    </div>
+</body>
+</html>
