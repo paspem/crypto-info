@@ -1,0 +1,200 @@
+{
+  "name": "MUMU Crypto Report Generator",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "hours",
+              "hoursInterval": 1
+            }
+          ]
+        }
+      },
+      "id": "schedule-trigger",
+      "name": "Schedule (Every 1 Hour)",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.1,
+      "position": [250, 300]
+    },
+    {
+      "parameters": {
+        "url": "http://<OPENCLAW_HOST>:<PORT>/api/mcp",
+        "method": "POST",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "message",
+              "value": "Generate MUMU Crypto Report dalam format Markdown. Struktur: Header (🧠 MUMU INFO + Tanggal UTC & WIB), Market Pulse (1-2 paragraf BTC, ETH, SOL, market cap, volume, whale), Trade Setups (1-3 koin: arah LONG/SHORT/SPOT, entry zone, TP, SL, confidence %, logika), Reality Check (peringatan risiko). Gaya: analitis, sarkastik, pakai terminologi crypto (alpha, liquidity sweep, order block, fomo, rekt)."
+            }
+          ]
+        },
+        "options": {
+          "timeout": 120000
+        }
+      },
+      "id": "openclaw-request",
+      "name": "HTTP Request - OpenClaw",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [450, 300]
+    },
+    {
+      "parameters": {
+        "markdown": "={{ $json.message }}"
+      },
+      "id": "markdown-html",
+      "name": "Markdown to HTML",
+      "type": "n8n-nodes-base.markdown",
+      "typeVersion": 1.2,
+      "position": [650, 300]
+    },
+    {
+      "parameters": {
+        "values": {
+          "string": [
+            {
+              "name": "htmlContent",
+              "value": "={{ $json.html }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "set-html",
+      "name": "Set HTML Content",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [850, 300]
+    },
+    {
+      "parameters": {
+        "url": "https://api.github.com/repos/<OWNER>/<REPO>/contents/reports/{{ $now.format('yyyy-MM-dd') }}/MUMU_REPORT_{{ $now.format('yyyy-MM-dd_HH-mm') }}.html",
+        "method": "PUT",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer {{ $credentials.githubToken }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "message",
+              "value": "🤖 Auto-upload: MUMU Report {{ $now.format('yyyy-MM-dd HH:mm') }}"
+            },
+            {
+              "name": "content",
+              "value": "={{ $base64($json.htmlContent) }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "github-upload",
+      "name": "GitHub - Upload Report",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [1050, 300],
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "1",
+          "name": "GitHub Token"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "channel": "telegram",
+        "chatId": "{{ $credentials.telegramChatId }}",
+        "text": "✅ Laporan MUMU jam {{ $now.format('HH:mm') }} sudah rilis!\n\n📊 https://<OWNER>.github.io/<REPO>/reports/{{ $now.format('yyyy-MM-dd') }}/MUMU_REPORT_{{ $now.format('yyyy-MM-dd_HH-mm') }}.html",
+        "additionalFields": {}
+      },
+      "id": "telegram-notify",
+      "name": "Telegram Notify",
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.6,
+      "position": [1250, 300],
+      "credentials": {
+        "telegramApi": {
+          "id": "2",
+          "name": "Telegram API"
+        }
+      }
+    }
+  ],
+  "connections": {
+    "Schedule (Every 1 Hour)": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request - OpenClaw",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request - OpenClaw": {
+      "main": [
+        [
+          {
+            "node": "Markdown to HTML",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Markdown to HTML": {
+      "main": [
+        [
+          {
+            "node": "Set HTML Content",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set HTML Content": {
+      "main": [
+        [
+          {
+            "node": "GitHub - Upload Report",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "GitHub - Upload Report": {
+      "main": [
+        [
+          {
+            "node": "Telegram Notify",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": ["crypto", "mumu", "auto-report"],
+  "updatedAt": "2026-03-09T03:35:00.000Z",
+  "versionId": "1"
+}
