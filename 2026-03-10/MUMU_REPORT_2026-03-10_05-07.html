@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MUMU Crypto Report</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); min-height: 100vh; padding: 20px; color: #e0e0e0; }
+        .container { max-width: 900px; margin: 0 auto; }
+        .header { text-align: center; margin-bottom: 30px; padding: 30px; background: rgba(255,255,255,0.05); border-radius: 15px; border: 1px solid rgba(255,255,255,0.1); }
+        .header h1 { font-size: 2.5em; background: linear-gradient(90deg, #00d4ff, #7b2cbf); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 10px; }
+        .datetime { color: #888; font-size: 0.95em; }
+        .datetime span { color: #00d4ff; }
+        .section { background: rgba(255,255,255,0.03); border-radius: 15px; padding: 25px; margin-bottom: 20px; border: 1px solid rgba(255,255,255,0.08); }
+        .section-title { font-size: 1.4em; color: #00d4ff; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid rgba(0,212,255,0.3); }
+        
+        table { width: 100%; border-collapse: collapse; }
+        th, td { padding: 15px; text-align: left; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        th { color: #888; font-weight: 600; font-size: 0.85em; text-transform: uppercase; }
+        .coin-name { font-weight: 600; }
+        .coin-symbol { color: #666; font-size: 0.85em; }
+        .price { font-size: 1.1em; font-weight: 600; }
+        .positive { color: #00e676; }
+        .negative { color: #ff5252; }
+        
+        .pulse-text { line-height: 1.8; font-size: 1.05em; }
+        
+        .setup { background: rgba(255,255,255,0.03); border-radius: 10px; padding: 20px; margin-bottom: 15px; border-left: 4px solid; }
+        .setup.long { border-color: #00e676; }
+        .setup.short { border-color: #ff5252; }
+        .setup.hold { border-color: #ffb74d; }
+        .setup-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; }
+        .setup-coin { font-size: 1.2em; font-weight: 700; }
+        .setup-direction { padding: 5px 15px; border-radius: 20px; font-weight: 600; font-size: 0.85em; }
+        .setup-direction.long { background: rgba(0,230,118,0.2); color: #00e676; }
+        .setup-direction.short { background: rgba(255,82,82,0.2); color: #ff5252; }
+        .setup-direction.hold { background: rgba(255,183,77,0.2); color: #ffb74d; }
+        
+        .setup-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin-bottom: 15px; }
+        .setup-item { background: rgba(0,0,0,0.2); padding: 12px; border-radius: 8px; }
+        .setup-item label { display: block; color: #666; font-size: 0.75em; text-transform: uppercase; margin-bottom: 5px; }
+        .setup-item span { font-weight: 600; font-size: 1.1em; }
+        
+        .confidence { text-align: center; }
+        .confidence-value { font-size: 1.8em; font-weight: 700; }
+        .confidence.high { color: #00e676; }
+        .confidence.medium { color: #ffb74d; }
+        .confidence.low { color: #ff5252; }
+        
+        .logic { font-size: 0.9em; color: #888; font-style: italic; padding: 10px; background: rgba(0,0,0,0.2); border-radius: 8px; }
+        
+        .reality-check { background: rgba(255,82,82,0.1); border: 1px solid rgba(255,82,82,0.3); }
+        .reality-check .section-title { color: #ff5252; border-color: rgba(255,82,82,0.3); }
+        .reality-list { list-style: none; }
+        .reality-list li { padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .reality-list li:before { content: "⚠️"; margin-right: 10px; }
+        
+        .footer { text-align: center; padding: 20px; color: #666; font-size: 0.85em; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📊 MUMU Crypto Report</h1>
+            <p class="datetime">
+                <span>UTC:</span> 10 Mar 2026, 05:07 | 
+                <span>WIB:</span> 10 Mar 2026, 12:07
+            </p>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">💰 Harga Terbaru (CoinMarketCap)</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Koin</th>
+                        <th>Harga USD</th>
+                        <th>Perubahan 24 Jam</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="coin-name">Bitcoin <span class="coin-symbol">BTC</span></td>
+                        <td class="price">$70,212.43</td>
+                        <td class="positive">+4.47%</td>
+                    </tr>
+                    <tr>
+                        <td class="coin-name">Ethereum <span class="coin-symbol">ETH</span></td>
+                        <td class="price">$2,049.07</td>
+                        <td class="positive">+3.41%</td>
+                    </tr>
+                    <tr>
+                        <td class="coin-name">Solana <span class="coin-symbol">SOL</span></td>
+                        <td class="price">$86.67</td>
+                        <td class="positive">+4.03%</td>
+                    </tr>
+                    <tr>
+                        <td class="coin-name">Chainlink <span class="coin-symbol">LINK</span></td>
+                        <td class="price">$9.03</td>
+                        <td class="positive">+3.70%</td>
+                    </tr>
+                    <tr>
+                        <td class="coin-name">Polkadot <span class="coin-symbol">DOT</span></td>
+                        <td class="price">$1.53</td>
+                        <td class="positive">+3.13%</td>
+                    </tr>
+                    <tr>
+                        <td class="coin-name">Avalanche <span class="coin-symbol">AVAX</span></td>
+                        <td class="price">$9.43</td>
+                        <td class="positive">+4.77%</td>
+                    </tr>
+                    <tr>
+                        <td class="coin-name">XRP <span class="coin-symbol">XRP</span></td>
+                        <td class="price">$1.38</td>
+                        <td class="positive">+2.91%</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">📈 Market Pulse</h2>
+            <p class="pulse-text">
+                Pasar crypto menunjukkan momentum positif yang kuat pagi ini. 
+                <strong>Bitcoin</strong> memimpin dengan kenaikan +4.47% menuju $70,200, diikuti oleh 
+                <strong>AVAX</strong> (+4.77%) dan <strong>SOL</strong> (+4.03%). Seluruh 7 koin yang 
+                dipantau mencatat penguatan 24 jam dengan rata-rata +3.77%. Volume trading BTC 
+                mencapai $49.5M menunjukkan partisipasi institusional yang meningkat. Dominasi BTC 
+                di 58.94% mengindikasikan sentiment risk-on di kalangan trader. ETH juga menguat +3.41% 
+                pasca-update ekosistem yang positif. Secara keseluruhan, market sedang dalam fase 
+                <strong>bullish minor</strong> dengan potensi koreksi jangka pendek.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">🎯 Trade Setups</h2>
+            
+            <div class="setup long">
+                <div class="setup-header">
+                    <span class="setup-coin">Bitcoin (BTC)</span>
+                    <span class="setup-direction long">LONG</span>
+                </div>
+                <div class="setup-grid">
+                    <div class="setup-item"><label>Entry Zone</label><span>$68,500 - $70,000</span></div>
+                    <div class="setup-item"><label>Take Profit</label><span>$72,500</span></div>
+                    <div class="setup-item"><label>Stop Loss</label><span>$67,000</span></div>
+                </div>
+                <div class="confidence high"><span class="confidence-value">82%</span></div>
+                <p class="logic">Breakout di atas $70K dengan volume tinggi. RSI di 65 menunjukkan ruang naik masih ada. Support kuat di $67K.</p>
+            </div>
+
+            <div class="setup long">
+                <div class="setup-header">
+                    <span class="setup-coin">Ethereum (ETH)</span>
+                    <span class="setup-direction long">LONG</span>
+                </div>
+                <div class="setup-grid">
+                    <div class="setup-item"><label>Entry Zone</label><span>$2,000 - $2,050</span></div>
+                    <div class="setup-item"><label>Take Profit</label><span>$2,200</span></div>
+                    <div class="setup-item"><label>Stop Loss</label><span>$1,950</span></div>
+                </div>
+                <div class="confidence medium"><span class="confidence-value">75%</span></div>
+                <p class="logic">ETH mengikuti BTC dengan korelasi tinggi. Support di $2,000 kuat. Target $2,200 adalah resistance psikologis.</p>
+            </div>
+
+            <div class="setup long">
+                <div class="setup-header">
+                    <span class="setup-coin">Avalanche (AVAX)</span>
+                    <span class="setup-direction long">LONG</span>
+                </div>
+                <div class="setup-grid">
+                    <div class="setup-item"><label>Entry Zone</label><span>$9.00 - $9.40</span></div>
+                    <div class="setup-item"><label>Take Profit</label><span>$10.50</span></div>
+                    <div class="setup-item"><label>Stop Loss</label><span>$8.50</span></div>
+                </div>
+                <div class="confidence high"><span class="confidence-value">78%</span></div>
+                <p class="logic">Pertumbuhan ekosistem +4.77% hari ini. TVL meningkat. Entry ideal di pullback ke $9.00-9.40.</p>
+            </div>
+
+            <div class="setup hold">
+                <div class="setup-header">
+                    <span class="setup-coin">Solana (SOL)</span>
+                    <span class="setup-direction hold">HOLD</span>
+                </div>
+                <div class="setup-grid">
+                    <div class="setup-item"><label>Entry Zone</label><span>$84 - $87</span></div>
+                    <div class="setup-item"><label>Take Profit</label><span>$92</span></div>
+                    <div class="setup-item"><label>Stop Loss</label><span>$82</span></div>
+                </div>
+                <div class="confidence medium"><span class="confidence-value">70%</span></div>
+                <p class="logic">SOL menguat +4.03% tapi masih di range. Tunggu breakout di atas $88 untuk konfirmasi bullish.</p>
+            </div>
+
+            <div class="setup hold">
+                <div class="setup-header">
+                    <span class="setup-coin">Chainlink (LINK)</span>
+                    <span class="setup-direction hold">HOLD</span>
+                </div>
+                <div class="setup-grid">
+                    <div class="setup-item"><label>Entry Zone</label><span>$8.70 - $9.10</span></div>
+                    <div class="setup-item"><label>Take Profit</label><span>$10.00</span></div>
+                    <div class="setup-item"><label>Stop Loss</label><span>$8.30</span></div>
+                </div>
+                <div class="confidence medium"><span class="confidence-value">68%</span></div>
+                <p class="logic">LINK di resistance. RSI overbought di 70. Lebih aman tunggu pullback sebelum entry.</p>
+            </div>
+
+            <div class="setup hold">
+                <div class="setup-header">
+                    <span class="setup-coin">Polkadot (DOT)</span>
+                    <span class="setup-direction hold">HOLD</span>
+                </div>
+                <div class="setup-grid">
+                    <div class="setup-item"><label>Entry Zone</label><span>$1.45 - $1.55</span></div>
+                    <div class="setup-item"><label>Take Profit</label><span>$1.75</span></div>
+                    <div class="setup-item"><label>Stop Loss</label><span>$1.38</span></div>
+                </div>
+                <div class="confidence low"><span class="confidence-value">60%</span></div>
+                <p class="logic">DOT paling lambat naik hari ini. Volatilitas rendah. Tunggu breakout di atas $1.60.</p>
+            </div>
+
+            <div class="setup hold">
+                <div class="setup-header">
+                    <span class="setup-coin">XRP</span>
+                    <span class="setup-direction hold">HOLD</span>
+                </div>
+                <div class="setup-grid">
+                    <div class="setup-item"><label>Entry Zone</label><span>$1.32 - $1.40</span></div>
+                    <div class="setup-item"><label>Take Profit</label><span>$1.55</span></div>
+                    <div class="setup-item"><label>Stop Loss</label><span>$1.25</span></div>
+                </div>
+                <div class="confidence medium"><span class="confidence-value">65%</span></div>
+                <p class="logic">XRP paling lemah hari ini (+2.91%). Koreksi 60-90 hari masih terasa. Hanya untuk risk-taker.</p>
+            </div>
+        </div>
+
+        <div class="section reality-check">
+            <h2 class="section-title">⚠️ Reality Check</h2>
+            <ul class="reality-list">
+                <li>Semua setup adalah <strong>spekulatif</strong> dan bukan nasihat keuangan.</li>
+                <li>Kondisi pasar crypto sangat volatil — bisa turun 20%+ dalam hitungan jam.</li>
+                <li>Sebelum entry, pastikan sesuai dengan risk tolerance masing-masing.</li>
+                <li>Gunakan money management yang benar: risiko maks 2% per trade.</li>
+                <li>Pasar sedang dalam fase recovery — hati-hati dengan fakeout.</li>
+                <li>Selalu lakukan riset sendiri (DYOR) sebelum mengambil keputusan trading.</li>
+            </ul>
+        </div>
+
+        <div class="footer">
+            <p>🔒 Disiapkan untuk keperluan informatif saja. Trading crypto beresiko tinggi.<br>
+            Data harga dari CoinMarketCap | Generated: 2026-03-10 05:07 UTC</p>
+        </div>
+    </div>
+</body>
+</html>
