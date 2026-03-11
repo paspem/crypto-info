@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MUMU Crypto Report</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; background: #1a1a2e; color: #eee; }
+        h1 { color: #00d4ff; text-align: center; }
+        h2 { color: #ff6b6b; border-bottom: 1px solid #333; padding-bottom: 10px; }
+        .header { text-align: center; margin-bottom: 30px; }
+        .timestamp { color: #888; font-size: 14px; }
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+        th, td { padding: 12px; text-align: left; border-bottom: 1px solid #333; }
+        th { background: #16213e; color: #00d4ff; }
+        .positive { color: #00ff88; }
+        .negative { color: #ff4757; }
+        .pulse { background: #16213e; padding: 20px; border-radius: 10px; margin: 20px 0; }
+        .setup { background: #16213e; padding: 15px; margin: 15px 0; border-radius: 8px; border-left: 4px solid #00d4ff; }
+        .setup.long { border-left-color: #00ff88; }
+        .setup.short { border-left-color: #ff4757; }
+        .setup.hold { border-left-color: #ffd93d; }
+        .confidence { font-weight: bold; padding: 5px 10px; border-radius: 5px; }
+        .confidence.high { background: #00ff88; color: #000; }
+        .confidence.medium { background: #ffd93d; color: #000; }
+        .confidence.low { background: #ff4757; color: #fff; }
+        .setup-header { display: flex; justify-content: space-between; align-items: center; }
+        .direction { font-size: 18px; font-weight: bold; }
+        .direction.long { color: #00ff88; }
+        .direction.short { color: #ff4757; }
+        .direction.hold { color: #ffd93d; }
+        .levels { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; margin: 10px 0; }
+        .level { background: #0f3460; padding: 10px; border-radius: 5px; text-align: center; }
+        .level-label { font-size: 12px; color: #888; }
+        .level-value { font-size: 16px; font-weight: bold; }
+        .logic { font-size: 13px; color: #aaa; font-style: italic; margin-top: 10px; }
+        .reality-check { background: #2d1f1f; border: 1px solid #ff4757; padding: 20px; border-radius: 10px; margin-top: 30px; }
+        .reality-check h3 { color: #ff4757; margin-top: 0; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🚀 MUMU Crypto Report</h1>
+        <p class="timestamp">UTC: 2026-03-11 09:30 | WIB: 2026-03-11 16:30</p>
+    </div>
+
+    <h2>📊 Harga Terbaru (CoinMarketCap)</h2>
+    <table>
+        <tr>
+            <th>Koin</th>
+            <th>Harga USD</th>
+            <th>Perubahan 24h</th>
+        </tr>
+        <tr>
+            <td>BTC</td>
+            <td>$69,608.15</td>
+            <td class="negative">-2.27%</td>
+        </tr>
+        <tr>
+            <td>ETH</td>
+            <td>$2,021.15</td>
+            <td class="negative">-2.38%</td>
+        </tr>
+        <tr>
+            <td>SOL</td>
+            <td>$85.38</td>
+            <td class="negative">-2.20%</td>
+        </tr>
+        <tr>
+            <td>LINK</td>
+            <td>$8.92</td>
+            <td class="negative">-2.25%</td>
+        </tr>
+        <tr>
+            <td>DOT</td>
+            <td>$1.50</td>
+            <td class="negative">-2.40%</td>
+        </tr>
+        <tr>
+            <td>AVAX</td>
+            <td>$9.56</td>
+            <td class="positive">+0.28%</td>
+        </tr>
+        <tr>
+            <td>XRP</td>
+            <td>$1.38</td>
+            <td class="negative">-2.47%</td>
+        </tr>
+    </table>
+
+    <h2>📈 Market Pulse</h2>
+    <div class="pulse">
+        <p>Pas crypto kembali mengalami tekanan bearish dengan hampir seluruh koin utamaMinuscule negatif pada 24 jam terakhir (2-2.5%). BTC tembus ke bawah $70K dan ETH di bawah $2,100. Hanya AVAX yang masih bertahan positif (+0.28%). Volume trading BTC turun 5%, menunjukkan penurunan volatilitas. XRP mencatatkan volume tertinggi kedua dengan lonjakan 22.6% meskipun harga masih negatif.</p>
+        <p><strong>Analisis:</strong> Market dalam kondisi koreksi. Altcoins mengikuti penurunan BTC. Support penting BTC di $68,500-69,000 perlu diawasi.</p>
+    </div>
+
+    <h2>🎯 Trade Setups</h2>
+
+    <div class="setup long">
+        <div class="setup-header">
+            <span class="direction long">LONG ⬆️</span>
+            <span class="confidence high">CONFIDENCE: 75%</span>
+        </div>
+        <h3>BTC/USDT</h3>
+        <div class="levels">
+            <div class="level">
+                <div class="level-label">Entry Zone</div>
+                <div class="level-value">$68,500 - $69,000</div>
+            </div>
+            <div class="level">
+                <div class="level-label">Take Profit</div>
+                <div class="level-value">$71,500</div>
+            </div>
+            <div class="level">
+                <div class="level-label">Stop Loss</div>
+                <div class="level-value">$67,500</div>
+            </div>
+        </div>
+        <p class="logic">Logika: Support kuat di $68,500. Jika bertahan, potensi bounce menuju $71,500. Risk/Reward 1:2.</p>
+    </div>
+
+    <div class="setup hold">
+        <div class="setup-header">
+            <span class="direction hold">HOLD ⏸️</span>
+            <span class="confidence medium">CONFIDENCE: 60%</span>
+        </div>
+        <h3>ETH/USDT</h3>
+        <div class="levels">
+            <div class="level">
+                <div class="level-label">Entry Zone</div>
+                <div class="level-value">$1,980 - $2,000</div>
+            </div>
+            <div class="level">
+                <div class="level-label">Take Profit</div>
+                <div class="level-value">$2,100</div>
+            </div>
+            <div class="level">
+                <div class="level-label">Stop Loss</div>
+                <div class="level-value">$1,950</div>
+            </div>
+        </div>
+        <p class="logic">Logika: ETH lebih lemah dari BTC. Tunggu konfirmasi break resistance $2,050 sebelum entry agresif.</p>
+    </div>
+
+    <div class="setup hold">
+        <div class="setup-header">
+            <span class="direction hold">HOLD ⏸️</span>
+            <span class="confidence low">CONFIDENCE: 45%</span>
+        </div>
+        <h3>SOL/USDT</h3>
+        <div class="levels">
+            <div class="level">
+                <div class="level-label">Entry Zone</div>
+                <div class="level-value">$82 - $84</div>
+            </div>
+            <div class="level">
+                <div class="level-label">Take Profit</div>
+                <div class="level-value">$90</div>
+            </div>
+            <div class="level">
+                <div class="level-label">Stop Loss</div>
+                <div class="level-value">$80</div>
+            </div>
+        </div>
+        <p class="logic">Logika: Altcoin season belum tiba. SOL perlu BTC stabil dulu sebelum rally.</p>
+    </div>
+
+    <div class="setup long">
+        <div class="setup-header">
+            <span class="direction long">LONG ⬆️</span>
+            <span class="confidence medium">CONFIDENCE: 65%</span>
+        </div>
+        <h3>AVAX/USDT</h3>
+        <div class="levels">
+            <div class="level">
+                <div class="level-label">Entry Zone</div>
+                <div class="level-value">$9.30 - $9.50</div>
+            </div>
+            <div class="level">
+                <div class="level-label">Take Profit</div>
+                <div class="level-value">$10.20</div>
+            </div>
+            <div class="level">
+                <div class="level-label">Stop Loss</div>
+                <div class="level-value">$9.00</div>
+            </div>
+        </div>
+        <p class="logic">Logika: Satu-satunya koin positif. breakout di $9.80 bisa trigger momentum lanjutan.</p>
+    </div>
+
+    <div class="reality-check">
+        <h3>⚠️ Reality Check</h3>
+        <ul>
+            <li>SEMUA trade adalah high-risk. Bukan financial advice.</li>
+            <li>Market sedang volatile. Gunakan money management yang benar.</li>
+            <li>Max risiko 1-2% per trade dari total modal.</li>
+            <li>Selalu Gunakan stop loss. Jangan pernah revenge trade.</li>
+            <li>Do your own research (DYOR) sebelum masuk posisi.</li>
+        </ul>
+    </div>
+
+    <p style="text-align: center; color: #666; margin-top: 30px;">
+        Generated: 2026-03-11 09:30 UTC | Source: CoinMarketCap API
+    </p>
+</body>
+</html>
