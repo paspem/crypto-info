@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MUMU Crypto Report</title>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; background: #0d1117; color: #c9d1d9; }
+        .header { text-align: center; margin-bottom: 30px; border-bottom: 1px solid #30363d; padding-bottom: 20px; }
+        .header h1 { color: #58a6ff; margin: 0 0 10px 0; }
+        .timestamps { font-size: 14px; color: #8b949e; }
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+        th, td { padding: 12px; text-align: left; border-bottom: 1px solid #30363d; }
+        th { background: #161b22; color: #58a6ff; }
+        .positive { color: #3fb950; }
+        .negative { color: #f85149; }
+        .section { margin: 30px 0; }
+        .section h2 { color: #58a6ff; border-left: 3px solid #58a6ff; padding-left: 10px; }
+        .pulse { background: #161b22; padding: 15px; border-radius: 8px; }
+        .setup { background: #161b22; padding: 15px; margin: 10px 0; border-radius: 8px; border-left: 4px solid #58a6ff; }
+        .setup-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+        .coin { font-weight: bold; font-size: 18px; }
+        .direction-LONG { color: #3fb950; }
+        .direction-SHORT { color: #f85149; }
+        .direction-HOLD { color: #d29922; }
+        .confidence { background: #21262d; padding: 3px 10px; border-radius: 12px; font-size: 14px; }
+        .confidence-high { background: #238636; color: white; }
+        .confidence-medium { background: #9e6a03; color: white; }
+        .confidence-low { background: #da3633; color: white; }
+        .trade-details { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin: 10px 0; }
+        .trade-details div { background: #21262d; padding: 8px; border-radius: 4px; text-align: center; }
+        .trade-details label { display: block; font-size: 12px; color: #8b949e; }
+        .trade-details span { font-weight: bold; }
+        .logika { font-size: 13px; color: #8b949e; margin-top: 10px; font-style: italic; }
+        .reality-check { background: #da363320; border: 1px solid #da3633; padding: 15px; border-radius: 8px; }
+        .reality-check h3 { color: #f85149; margin-top: 0; }
+        .footer { text-align: center; margin-top: 30px; font-size: 12px; color: #8b949e; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>📊 MUMU Crypto Report</h1>
+        <div class="timestamps">
+            <span>🕐 UTC: 2026-03-11 01:04</span> | 
+            <span>🌏 WIB: 2026-03-11 08:04</span>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>💰 Harga Terbaru (CoinMarketCap)</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Koin</th>
+                    <th>Harga (USD)</th>
+                    <th>24h Change</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>� BTC Bitcoin</td>
+                    <td>$70,087.96</td>
+                    <td class="positive">+1.27%</td>
+                </tr>
+                <tr>
+                    <td>🇪 ETH Ethereum</td>
+                    <td>$2,038.77</td>
+                    <td class="positive">+0.95%</td>
+                </tr>
+                <tr>
+                    <td>☀️ SOL Solana</td>
+                    <td>$86.10</td>
+                    <td class="positive">+0.59%</td>
+                </tr>
+                <tr>
+                    <td>🔗 LINK Chainlink</td>
+                    <td>$8.99</td>
+                    <td class="positive">+0.66%</td>
+                </tr>
+                <tr>
+                    <td>● DOT Polkadot</td>
+                    <td>$1.48</td>
+                    <td class="negative">-1.38%</td>
+                </tr>
+                <tr>
+                    <td>🔺 AVAX Avalanche</td>
+                    <td>$9.56</td>
+                    <td class="positive">+2.48%</td>
+                </tr>
+                <tr>
+                    <td>✕ XRP</td>
+                    <td>$1.39</td>
+                    <td class="positive">+1.36%</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="section">
+        <h2>📈 Market Pulse</h2>
+        <div class="pulse">
+            <p><strong>Analisis:</strong> Pasar crypto menunjukkan sentimen positif pagi ini. BTC memimpin dengan kenaikan 1.27% dan berhasil mempertahankan posisi di atas $70K. ETH dan altcoins mengikuti tren positif dengan AVAX menjadi top performer (+2.48%). Volume trading BTC sangat tinggi ($53.1B) menunjukkan likuiditas yang sangat baik. Dominasi BTC tetap kuat di 58.8% mengindikasikan investor masih berhati-hati dan memilih aset likuid.</p>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>🎯 Trade Setups</h2>
+        
+        <div class="setup">
+            <div class="setup-header">
+                <span class="coin">BTC/USDT</span>
+                <span class="direction-LONG">LONG</span>
+                <span class="confidence confidence-high">Confidence: 85%</span>
+            </div>
+            <div class="trade-details">
+                <div><label>Entry Zone</label><span>$69,500 - $70,000</span></div>
+                <div><label>Take Profit</label><span>$71,500</span></div>
+                <div><label>Stop Loss</label><span>$68,500</span></div>
+                <div><label>Risk/Reward</label><span>1:2</span></div>
+            </div>
+            <div class="logika">📝 Logika: BTC berhasil menembus resistance MA 20 dan MA 50. Volume naik 8% mengindikasikan momentum bullish. Support kuat di $68,500.</div>
+        </div>
+
+        <div class="setup">
+            <div class="setup-header">
+                <span class="coin">ETH/USDT</span>
+                <span class="direction-LONG">LONG</span>
+                <span class="confidence confidence-medium">Confidence: 70%</span>
+            </div>
+            <div class="trade-details">
+                <div><label>Entry Zone</label><span>$2,020 - $2,050</span></div>
+                <div><label>Take Profit</label><span>$2,150</span></div>
+                <div><label>Stop Loss</label><span>$1,980</span></div>
+                <div><label>Risk/Reward</label><span>1:1.5</span></div>
+            </div>
+            <div class="logika">📝 Logika: ETH menunjukkan konsolidasi di area $2,030. Resistant di $2,150. Ikuti BTC untuk breakout.</div>
+        </div>
+
+        <div class="setup">
+            <div class="setup-header">
+                <span class="coin">AVAX/USDT</span>
+                <span class="direction-LONG">LONG</span>
+                <span class="confidence confidence-medium">Confidence: 75%</span>
+            </div>
+            <div class="trade-details">
+                <div><label>Entry Zone</label><span>$9.30 - $9.50</span></div>
+                <div><label>Take Profit</label><span>$10.50</span></div>
+                <div><label>Stop Loss</label><span>$8.80</span></div>
+                <div><label>Risk/Reward</label><span>1:2</span></div>
+            </div>
+            <div class="logika">📝 Logika: AVAX top performer dengan volume tinggi. Breakout dari pola ascending triangle. Target lanjutan ke $11.</div>
+        </div>
+
+        <div class="setup">
+            <div class="setup-header">
+                <span class="coin">DOT/USDT</span>
+                <span class="direction-HOLD">HOLD</span>
+                <span class="confidence confidence-low">Confidence: 50%</span>
+            </div>
+            <div class="trade-details">
+                <div><label>Entry Zone</label><span>Wait & Watch</span></div>
+                <div><label>Take Profit</label><span>-</span></div>
+                <div><label>Stop Loss</label><span>-</span></div>
+                <div><label>Risk/Reward</label><span>-</span></div>
+            </div>
+            <div class="logika">📝 Logika: DOT masih dalam downtrend dengan volume negatif. Tunggu konfirmasi breakout di atas $1.60.</div>
+        </div>
+
+        <div class="setup">
+            <div class="setup-header">
+                <span class="coin">XRP/USDT</span>
+                <span class="direction-LONG">LONG</span>
+                <span class="confidence confidence-medium">Confidence: 65%</span>
+            </div>
+            <div class="trade-details">
+                <div><label>Entry Zone</label><span>$1.35 - $1.38</span></div>
+                <div><label>Take Profit</label><span>$1.55</span></div>
+                <div><label>Stop Loss</label><span>$1.28</span></div>
+                <div><label>Risk/Reward</label><span>1:1.7</span></div>
+            </div>
+            <div class="logika">📝 Logika: XRP naik 39% volume hari ini. BREAKING: Ripple dapat勝利(kesepakatan) regulasi. Watch for continuation.</div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>⚠️ Reality Check</h2>
+        <div class="reality-check">
+            <h3>🚨 PERINGATAN RISIKO</h3>
+            <ul>
+                <li><strong>Semua trade adalah SPECULATIVE</strong> - Jangan trading dengan uang yang tidak bisa kamu rugikan</li>
+                <li><strong>Pasar crypto sangat volatile</strong> - Harga bisa turun 50%+ dalam hitungan jam</li>
+                <li><strong>Confidencescore bukan jaminan</strong> - Ini hanya analisis, bukan financial advice</li>
+                <li><strong>Risk management WAJIB</strong> - Jangan pernah risk lebih dari 2% per trade</li>
+                <li><strong>Do your own research (DYOR)</strong> - Verifikasi semua info sebelum mengambil keputusan</li>
+                <li><strong>Pergerakan 90 hari negatif</strong> - BTC -23%, ETH -37%, SOL -35% dalam 90 hari terakhir</li>
+            </ul>
+            <p><em>Powered by CoinMarketCap API | Waktu pembuatan: 2026-03-11 01:04 UTC</em></p>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>🤖 Generated by MUMU Crypto Bot | Data dari CoinMarketCap</p>
+    </div>
+</body>
+</html>
