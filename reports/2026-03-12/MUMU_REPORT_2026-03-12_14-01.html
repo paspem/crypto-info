@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MUMU Crypto Report - 2026-03-12</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; background: #1a1a2e; color: #eee; }
+        h1 { color: #00d4ff; text-align: center; }
+        h2 { color: #ff6b6b; border-bottom: 1px solid #333; padding-bottom: 10px; }
+        .header { text-align: center; margin-bottom: 30px; }
+        .timestamp { color: #888; font-size: 14px; }
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+        th, td { padding: 12px; text-align: left; border-bottom: 1px solid #333; }
+        th { background: #16213e; color: #00d4ff; }
+        .positive { color: #00ff88; }
+        .negative { color: #ff4757; }
+        .setup { background: #16213e; padding: 15px; margin: 10px 0; border-radius: 8px; border-left: 4px solid #00d4ff; }
+        .long { border-left-color: #00ff88; }
+        .short { border-left-color: #ff4757; }
+        .hold { border-left-color: #ffa502; }
+        .setup-header { display: flex; justify-content: space-between; align-items: center; }
+        .coin { font-weight: bold; font-size: 18px; }
+        .direction { padding: 4px 12px; border-radius: 4px; font-weight: bold; }
+        .direction.long { background: #00ff88; color: #000; }
+        .direction.short { background: #ff4757; color: #fff; }
+        .direction.hold { background: #ffa502; color: #000; }
+        .confidence { font-weight: bold; }
+        .confidence.high { color: #00ff88; }
+        .confidence.medium { color: #ffa502; }
+        .confidence.low { color: #ff4757; }
+        .zones { display: flex; gap: 20px; margin: 10px 0; }
+        .zone { background: #0f0f23; padding: 8px 12px; border-radius: 4px; }
+        .zone-label { color: #888; font-size: 12px; }
+        .zone-value { font-weight: bold; color: #00d4ff; }
+        .logic { color: #aaa; font-style: italic; margin-top: 10px; font-size: 14px; }
+        .pulse { background: #16213e; padding: 15px; border-radius: 8px; margin: 20px 0; }
+        .reality-check { background: #2d1f1f; padding: 15px; border-radius: 8px; border: 1px solid #ff4757; }
+        .reality-check h3 { color: #ff4757; margin-top: 0; }
+        .footer { text-align: center; color: #666; margin-top: 30px; font-size: 12px; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>📊 MUMU Crypto Report</h1>
+        <p class="timestamp">UTC: 12 Mar 2026, 14:01 | WIB: 12 Mar 2026, 21:01</p>
+    </div>
+
+    <h2>💰 Harga Terkini (CoinMarketCap)</h2>
+    <table>
+        <tr>
+            <th>Koin</th>
+            <th>Harga (USD)</th>
+            <th>Perubahan 24h</th>
+        </tr>
+        <tr>
+            <td>BTC</td>
+            <td>$69,975.45</td>
+            <td class="negative">-0.31%</td>
+        </tr>
+        <tr>
+            <td>ETH</td>
+            <td>$2,065.57</td>
+            <td class="positive">+0.71%</td>
+        </tr>
+        <tr>
+            <td>SOL</td>
+            <td>$86.80</td>
+            <td class="positive">+0.97%</td>
+        </tr>
+        <tr>
+            <td>LINK</td>
+            <td>$9.01</td>
+            <td class="negative">-0.30%</td>
+        </tr>
+        <tr>
+            <td>DOT</td>
+            <td>$1.50</td>
+            <td class="negative">-2.17%</td>
+        </tr>
+        <tr>
+            <td>AVAX</td>
+            <td>$9.55</td>
+            <td class="negative">-1.57%</td>
+        </tr>
+        <tr>
+            <td>XRP</td>
+            <td>$1.38</td>
+            <td class="negative">-0.72%</td>
+        </tr>
+    </table>
+
+    <h2>📈 Market Pulse</h2>
+    <div class="pulse">
+        <p>Market menunjukkan <strong>koreksi ringan</strong> pada hari ini. BTC melemah 0.31% sementara ETH dan SOL berhasil mencatat kenaikan kecil. Altcoins cenderung tertekan dengan DOT dan AVAX mencatat penurunan terbesar. Dominasi BTC tetap kuat di 58.65%. Volume trading menurun signifikan (~10-35%) dibanding kemarin.</p>
+    </div>
+
+    <h2>🎯 Trade Setups</h2>
+
+    <div class="setup long">
+        <div class="setup-header">
+            <span class="coin">BTC/USDT</span>
+            <span class="direction long">LONG</span>
+        </div>
+        <div class="zones">
+            <div class="zone"><span class="zone-label">Entry Zone</span><br><span class="zone-value">$68,500 - $69,500</span></div>
+            <div class="zone"><span class="zone-label">Take Profit</span><br><span class="zone-value">$72,000</span></div>
+            <div class="zone"><span class="zone-label">Stop Loss</span><br><span class="zone-value">$67,500</span></div>
+        </div>
+        <p class="confidence">Confidence: <span class="confidence high">75%</span></p>
+        <p class="logic">Logika: Support kuat di $67,500. Harga masih di atas MA 200. Jika ada rejection dari area $69,000 bisa jadi_entry untuk naik.</p>
+    </div>
+
+    <div class="setup short">
+        <div class="setup-header">
+            <span class="coin">DOT/USDT</span>
+            <span class="direction short">SHORT</span>
+        </div>
+        <div class="zones">
+            <div class="zone"><span class="zone-label">Entry Zone</span><br><span class="zone-value">$1.52 - $1.55</span></div>
+            <div class="zone"><span class="zone-label">Take Profit</span><br><span class="zone-value">$1.40</span></div>
+            <div class="zone"><span class="zone-label">Stop Loss</span><br><span class="zone-value">$1.60</span></div>
+        </div>
+        <p class="confidence">Confidence: <span class="confidence medium">60%</span></p>
+        <p class="logic">Logika: DOT mencatat penurunan terbesar hari ini (-2.17%). Resisten di $1.55 gagal. Target nächsten support di $1.40.</p>
+    </div>
+
+    <div class="setup long">
+        <div class="setup-header">
+            <span class="coin">ETH/USDT</span>
+            <span class="direction long">LONG</span>
+        </div>
+        <div class="zones">
+            <div class="zone"><span class="zone-label">Entry Zone</span><br><span class="zone-value">$2,030 - $2,050</span></div>
+            <div class="zone"><span class="zone-label">Take Profit</span><br><span class="zone-value">$2,150</span></div>
+            <div class="zone"><span class="zone-label">Stop Loss</span><br><span class="zone-value">$2,000</span></div>
+        </div>
+        <p class="confidence">Confidence: <span class="confidence high">70%</span></p>
+        <p class="logic">Logika: ETH naik 0.71% hari ini. Mulai ada momentum bullish. Entry di pullback ke $2,030-2,050.</p>
+    </div>
+
+    <div class="setup hold">
+        <div class="setup-header">
+            <span class="coin">AVAX/USDT</span>
+            <span class="direction hold">HOLD</span>
+        </div>
+        <div class="zones">
+            <div class="zone"><span class="zone-label">Entry Zone</span><br><span class="zone-value">$9.00 - $9.50</span></div>
+            <div class="zone"><span class="zone-label">Take Profit</span><br><span class="zone-value">$10.50</span></div>
+            <div class="zone"><span class="zone-label">Stop Loss</span><br><span class="zone-value">$8.50</span></div>
+        </div>
+        <p class="confidence">Confidence: <span class="confidence medium">55%</span></p>
+        <p class="logic">Logika: AVAX dalam downtrend. Tunggu konfirmasi reversal sebelum masuk. Saat ini HOLD.</p>
+    </div>
+
+    <div class="setup hold">
+        <div class="setup-header">
+            <span class="coin">XRP/USDT</span>
+            <span class="direction hold">HOLD</span>
+        </div>
+        <div class="zones">
+            <div class="zone"><span class="zone-label">Entry Zone</span><br><span class="zone-value">$1.35 - $1.40</span></div>
+            <div class="zone"><span class="zone-label">Take Profit</span><br><span class="zone-value">$1.50</span></div>
+            <div class="zone"><span class="zone-label">Stop Loss</span><br><span class="zone-value">$1.30</span></div>
+        </div>
+        <p class="confidence">Confidence: <span class="confidence medium">50%</span></p>
+        <p class="logic">Logika: XRP turun -0.72%. Belum ada sinyal clear. Tunggu breakout dari range $1.35-1.45.</p>
+    </div>
+
+    <h2>⚠️ Reality Check</h2>
+    <div class="reality-check">
+        <h3>PERINGATAN RISIKO</h3>
+        <ul>
+            <li>Trading crypto beresiko tinggi. Hanya gunakan dana yang mampu hilang.</li>
+            <li>Confidencelevel bukan jaminan profit. Selalu lakukan riset sendiri.</li>
+            <li>Pasar sangat volatil. Stop loss wajib dipasang.</li>
+            <li>Report ini hanya untuk informasi, bukan saran finansial.</li>
+        </ul>
+    </div>
+
+    <div class="footer">
+        <p>Generated: 2026-03-12 14:01 UTC | Data: CoinMarketCap API</p>
+        <p>MUMU Crypto Report © 2026</p>
+    </div>
+</body>
+</html>
